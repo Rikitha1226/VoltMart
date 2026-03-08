@@ -1,0 +1,95 @@
+.vm-auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at top, #4f46e5, #1f2937 55%);
+  padding: 1.5rem;
+}
+
+.vm-auth__card {
+  width: 100%;
+  max-width: 380px;
+  border-radius: 1.2rem;
+  background: rgba(15, 23, 42, 0.98);
+  padding: 2.1rem 2.1rem 1.8rem;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.9);
+  color: #e5e7eb;
+  backdrop-filter: blur(16px);
+}
+
+.vm-auth__title {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.vm-auth__subtitle {
+  margin: 0.4rem 0 1.5rem;
+  font-size: 0.95rem;
+  color: #9ca3af;
+}
+
+.vm-auth__form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.vm-auth__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+}
+
+.vm-auth__field span {
+  color: #d1d5db;
+}
+
+.vm-auth__field input,
+.vm-auth__field select {
+  border-radius: 0.7rem;
+  border: 1px solid #374151;
+  padding: 0.5rem 0.75rem;
+  background: #020617;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+}
+
+.vm-auth__field input:focus,
+.vm-auth__field select:focus {
+  outline: none;
+  border-color: #818cf8;
+  box-shadow: 0 0 0 1px #4f46e5;
+}
+
+.vm-auth__submit {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.vm-auth__link {
+  margin-top: 0.9rem;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: #a5b4fc;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.vm-auth__link:hover {
+  text-decoration: underline;
+}
+
+.vm-auth__error {
+  margin-bottom: 0.7rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.7rem;
+  background: rgba(239, 68, 68, 0.12);
+  color: #fecaca;
+  font-size: 0.82rem;
+}
+
