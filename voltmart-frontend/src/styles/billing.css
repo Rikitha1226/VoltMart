@@ -4,7 +4,11 @@
   padding: 1.5rem 1.75rem 2rem;
   background: transparent;
   min-height: calc(100vh - 64px);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
 }
 
@@ -141,59 +145,59 @@
   }
 }
 
-.modalOverlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.5);
-display:flex;
-align-items:center;
-justify-content:center;
-z-index:1000;
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 
-.modalBox{
-background:white;
-padding:30px;
-border-radius:10px;
-width:350px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+.modalBox {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.modalBox h2{
-margin-bottom:10px;
+.modalBox h2 {
+  margin-bottom: 10px;
 }
 
-.modalBox input{
-width:100%;
-padding:10px;
-margin-top:10px;
-border:1px solid #ccc;
-border-radius:6px;
+.modalBox input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
-.modalButtons{
-margin-top:20px;
-display:flex;
-justify-content:space-between;
+.modalButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.cancelBtn{
-background:#ddd;
-border:none;
-padding:8px 15px;
-border-radius:6px;
-cursor:pointer;
+.cancelBtn {
+  background: #ddd;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
-.confirmBtn{
-background:#4CAF50;
-color:white;
-border:none;
-padding:8px 15px;
-border-radius:6px;
-cursor:pointer;
+.confirmBtn {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
 }

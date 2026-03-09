@@ -65,7 +65,7 @@ function Profile() {
 
   const handleDeleteSelf = async () => {
     const confirmed = window.confirm(
-      "This will delete your account permanently. Continue?"
+      "This will delete your account permanently. Continue?",
     );
 
     if (!confirmed) return;
@@ -88,9 +88,7 @@ function Profile() {
       return;
     }
 
-    const confirmed = window.confirm(
-      `Delete user with ID ${targetUserId}?`
-    );
+    const confirmed = window.confirm(`Delete user with ID ${targetUserId}?`);
 
     if (!confirmed) return;
 
@@ -117,7 +115,10 @@ function Profile() {
 
       {error && <div className="vm-alert vm-alert--error">{error}</div>}
       {message && (
-        <div className="vm-alert" style={{ background: "#ecfdf5", color: "#166534" }}>
+        <div
+          className="vm-alert"
+          style={{ background: "#ecfdf5", color: "#166534" }}
+        >
           {message}
         </div>
       )}
@@ -136,11 +137,7 @@ function Profile() {
 
             <label className="vm-form-grid__field">
               <span>Phone</span>
-              <input
-                name="phone"
-                value={form.phone}
-                onChange={handleChange}
-              />
+              <input name="phone" value={form.phone} onChange={handleChange} />
             </label>
 
             <label className="vm-form-grid__field">
@@ -165,11 +162,7 @@ function Profile() {
           </div>
 
           <div style={{ marginTop: "0.9rem" }}>
-            <Button
-              variant="primary"
-              onClick={handleSave}
-              disabled={saving}
-            >
+            <Button variant="primary" onClick={handleSave} disabled={saving}>
               {saving ? "Saving..." : "Save changes"}
             </Button>
           </div>
@@ -219,4 +212,3 @@ function Profile() {
 }
 
 export default Profile;
-

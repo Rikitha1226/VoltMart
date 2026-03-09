@@ -1,45 +1,112 @@
 package com.voltmart.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name="users",
-uniqueConstraints = {
-@UniqueConstraint(columnNames = "username"),
-@UniqueConstraint(columnNames = "email")
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "username"),
+        @UniqueConstraint(columnNames = "email")
 })
 public class User {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+    @Column(nullable = false, unique = true)
+    private String username;
 
-private String username;
-private String email;
-private String phone;
-private String password;
-private String role;
+    @Column(nullable = false, unique = true)
+    private String email;
 
-public User(){}
+    private String phone;
 
-public Long getId(){ return id; }
-public void setId(Long id){ this.id = id; }
+    @Column(nullable = false)
+    private String password;
 
-public String getUsername(){ return username; }
-public void setUsername(String username){ this.username = username; }
+    private String role;
 
-public String getEmail(){ return email; }
-public void setEmail(String email){ this.email = email; }
+    @Column(nullable = false)
+    private boolean verified = false;
 
-public String getPhone(){ return phone; }
-public void setPhone(String phone){ this.phone = phone; }
+    private String otp;
 
-public String getPassword(){ return password; }
-public void setPassword(String password){ this.password = password; }
+    @Column(name = "otp_expiry")
+    private LocalDateTime otpExpiry;
 
-public String getRole(){ return role; }
-public void setRole(String role){ this.role = role; }
+    public User() {
+    }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public boolean isVerified() {
+        return verified;
+    }
+
+    public void setVerified(boolean verified) {
+        this.verified = verified;
+    }
+
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
+
+    public LocalDateTime getOtpExpiry() {
+        return otpExpiry;
+    }
+
+    public void setOtpExpiry(LocalDateTime otpExpiry) {
+        this.otpExpiry = otpExpiry;
+    }
 }

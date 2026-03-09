@@ -2,10 +2,8 @@ package com.voltmart.controller;
 
 import com.voltmart.entity.Product;
 import com.voltmart.service.ProductService;
-
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/products")
@@ -38,9 +36,7 @@ public class ProductController {
 
     // Update product
     @PutMapping("/{id}")
-    public Product updateProduct(
-            @PathVariable Long id,
-            @RequestBody Product product) {
+    public Product updateProduct(@PathVariable Long id, @RequestBody Product product) {
 
         return productService.updateProduct(id, product);
     }

@@ -16,9 +16,7 @@ function Navbar() {
               {user.username ? user.username.charAt(0).toUpperCase() : "U"}
             </span>
             <div className="vm-navbar__meta">
-              <span className="vm-navbar__name">
-                {user.username || "User"}
-              </span>
+              <span className="vm-navbar__name">{user.username || "User"}</span>
               <span className="vm-navbar__role">
                 {user.role === "ADMIN" ? "Admin" : "Cashier"}
               </span>
@@ -31,4 +29,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

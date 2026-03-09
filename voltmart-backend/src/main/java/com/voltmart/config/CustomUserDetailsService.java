@@ -2,13 +2,12 @@ package com.voltmart.config;
 
 import com.voltmart.entity.User;
 import com.voltmart.repository.UserRepository;
+import java.util.Collections;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
-import java.util.Collections;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -20,27 +19,27 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username)
-            throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found: " + username));
+        User user =
+                userRepository
+                        .findByUsername(username)
+                        .orElseThrow(
+                                () -> new UsernameNotFoundException("User not found: " + username));
 
         String role = user.getRole();
 
-        if(role == null){
+        if (role == null) {
             role = "ROLE_CASHIER";
         }
 
-        if(!role.startsWith("ROLE_")){
+        if (!role.startsWith("ROLE_")) {
             role = "ROLE_" + role;
         }
 
         return new org.springframework.security.core.userdetails.User(
                 user.getUsername(),
                 "{noop}" + user.getPassword(),
-                Collections.singletonList(new SimpleGrantedAuthority(role))
-        );
+                Collections.singletonList(new SimpleGrantedAuthority(role)));
     }
 }

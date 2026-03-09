@@ -42,7 +42,7 @@ function Reports() {
       const date = new Date(order.orderDate);
       const keyDay = date.toISOString().slice(0, 10);
       const keyMonth = `${date.getFullYear()}-${String(
-        date.getMonth() + 1
+        date.getMonth() + 1,
       ).padStart(2, "0")}`;
       const amount = order.totalAmount || 0;
 
@@ -120,4 +120,3 @@ function Reports() {
 }
 
 export default Reports;
-

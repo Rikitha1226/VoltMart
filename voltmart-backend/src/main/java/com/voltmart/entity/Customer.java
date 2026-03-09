@@ -6,50 +6,47 @@ import javax.persistence.*;
 @Table(name = "customers")
 public class Customer {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+    private String name;
 
-private String name;
+    private String phone;
 
-private String phone;
+    private String email;
 
-private String email;
+    public Customer() {}
 
-public Customer() {}
+    public Long getId() {
+        return id;
+    }
 
-public Long getId() {
-    return id;
-}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-public void setId(Long id) {
-    this.id = id;
-}
+    public String getName() {
+        return name;
+    }
 
-public String getName() {
-    return name;
-}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-public void setName(String name) {
-    this.name = name;
-}
+    public String getPhone() {
+        return phone;
+    }
 
-public String getPhone() {
-    return phone;
-}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-public void setPhone(String phone) {
-    this.phone = phone;
-}
+    public String getEmail() {
+        return email;
+    }
 
-public String getEmail() {
-    return email;
-}
-
-public void setEmail(String email) {
-    this.email = email;
-}
-
-
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

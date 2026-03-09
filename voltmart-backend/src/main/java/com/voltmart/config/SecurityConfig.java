@@ -1,5 +1,6 @@
 package com.voltmart.config;
 
+import java.util.Arrays;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -12,8 +13,6 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
-import java.util.Arrays;
-
 @Configuration
 @SuppressWarnings("deprecation")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -21,30 +20,33 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http
-            .csrf().disable()
-            .cors()
-            .and()
+        http.csrf()
+                .disable()
+                .cors()
+                .and()
+                .authorizeRequests()
 
-            .authorizeRequests()
+                // Allow authentication APIs
+                .antMatchers("/api/auth/**")
+                .permitAll()
 
-            // Allow authentication APIs
-            .antMatchers("/api/auth/**").permitAll()
+                // Allow product APIs
+                .antMatchers(HttpMethod.GET, "/api/products/**")
+                .permitAll()
 
-            // Allow product APIs
-            .antMatchers(HttpMethod.GET, "/api/products/**").permitAll()
+                // Allow all API endpoints (remove 403 issue)
+                .antMatchers("/api/**")
+                .permitAll()
 
-            // Allow all API endpoints (remove 403 issue)
-            .antMatchers("/api/**").permitAll()
+                // Allow frontend routes
+                .antMatchers("/", "/static/**")
+                .permitAll()
 
-            // Allow frontend routes
-            .antMatchers("/", "/static/**").permitAll()
-
-            // Any other request requires authentication
-            .anyRequest().authenticated()
-
-            .and()
-            .httpBasic();
+                // Any other request requires authentication
+                .anyRequest()
+                .authenticated()
+                .and()
+                .httpBasic();
     }
 
     // In-memory login users
@@ -74,7 +76,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         CorsConfiguration configuration = new CorsConfiguration();
 
         configuration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS"));
+        configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setAllowCredentials(true);
 

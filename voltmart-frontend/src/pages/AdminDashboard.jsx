@@ -112,9 +112,7 @@ function AdminDashboard() {
 
       <div className="vm-metrics">
         <Card title="Total Products">
-          <p className="vm-metrics__value">
-            {totals.totalProducts}
-          </p>
+          <p className="vm-metrics__value">{totals.totalProducts}</p>
         </Card>
         <Card title="Low Stock Items">
           <p className="vm-metrics__value vm-metrics__value--warning">
@@ -122,11 +120,9 @@ function AdminDashboard() {
           </p>
         </Card>
         <Card title="Total Orders">
-          <p className="vm-metrics__value">
-            {totals.totalOrders}
-          </p>
+          <p className="vm-metrics__value">{totals.totalOrders}</p>
         </Card>
-        <Card title="Today&apos;s Sales">
+        <Card title="Today's Sales">
           <p className="vm-metrics__value vm-metrics__value--accent">
             ₹{totals.todaysSales.toFixed(2)}
           </p>
@@ -151,10 +147,7 @@ function AdminDashboard() {
         </Card>
       </div>
 
-      <Card
-        title="Recent activity"
-        subtitle="Latest orders from the POS."
-      >
+      <Card title="Recent activity" subtitle="Latest orders from the POS.">
         {loading ? (
           <div className="vm-table__loading">Loading...</div>
         ) : (
@@ -175,4 +168,3 @@ function AdminDashboard() {
 }
 
 export default AdminDashboard;
-

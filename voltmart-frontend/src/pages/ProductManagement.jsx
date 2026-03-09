@@ -39,7 +39,10 @@ function ProductManagement() {
       const data = response?.data;
       setProducts(Array.isArray(data) ? data : []);
     } catch (err) {
-      const msg = err?.response?.data?.message || err?.message || "Failed to load products.";
+      const msg =
+        err?.response?.data?.message ||
+        err?.message ||
+        "Failed to load products.";
       setError(typeof msg === "string" ? msg : "Failed to load products.");
     } finally {
       setLoading(false);
@@ -133,9 +136,7 @@ function ProductManagement() {
   };
 
   const handleDelete = async (product) => {
-    const confirmed = window.confirm(
-      `Delete product "${product.name}"?`
-    );
+    const confirmed = window.confirm(`Delete product "${product.name}"?`);
 
     if (!confirmed) return;
 
@@ -175,9 +176,7 @@ function ProductManagement() {
     let list = [...products];
 
     if (categoryFilter) {
-      list = list.filter(
-        (product) => product.category === categoryFilter
-      );
+      list = list.filter((product) => product.category === categoryFilter);
     }
 
     return list;
@@ -185,20 +184,16 @@ function ProductManagement() {
 
   const totalPages = Math.max(
     1,
-    Math.ceil(filteredProducts.length / PAGE_SIZE)
+    Math.ceil(filteredProducts.length / PAGE_SIZE),
   );
 
   const pageItems = filteredProducts.slice(
     (page - 1) * PAGE_SIZE,
-    page * PAGE_SIZE
+    page * PAGE_SIZE,
   );
 
   const categories = Array.from(
-    new Set(
-      products
-        .map((product) => product.category)
-        .filter(Boolean)
-    )
+    new Set(products.map((product) => product.category).filter(Boolean)),
   );
 
   return (
@@ -214,9 +209,7 @@ function ProductManagement() {
         <Card
           title="Add product"
           subtitle="Quickly add or update products."
-          actions={
-            <Button onClick={openCreateModal}>New Product</Button>
-          }
+          actions={<Button onClick={openCreateModal}>New Product</Button>}
         >
           <div className="vm-toolbar">
             <SearchBar
@@ -230,9 +223,7 @@ function ProductManagement() {
               <select
                 className="vm-input"
                 value={categoryFilter}
-                onChange={(event) =>
-                  setCategoryFilter(event.target.value)
-                }
+                onChange={(event) => setCategoryFilter(event.target.value)}
               >
                 <option value="">All categories</option>
                 {categories.map((category) => (
@@ -274,9 +265,7 @@ function ProductManagement() {
                 renderRow={(product) => (
                   <tr
                     key={product.id}
-                    className={
-                      product.stock < 5 ? "vm-row--low-stock" : ""
-                    }
+                    className={product.stock < 5 ? "vm-row--low-stock" : ""}
                   >
                     <td>{product.id}</td>
                     <td>{product.name}</td>
@@ -286,7 +275,11 @@ function ProductManagement() {
                     <td>{product.stock}</td>
                     <td>{product.rackLocation || "—"}</td>
                     <td title={product.description || ""}>
-                      {product.description ? (product.description.length > 30 ? product.description.slice(0, 30) + "…" : product.description) : "—"}
+                      {product.description
+                        ? product.description.length > 30
+                          ? product.description.slice(0, 30) + "…"
+                          : product.description
+                        : "—"}
                     </td>
                     <td>
                       <Button
@@ -338,17 +331,10 @@ function ProductManagement() {
         onClose={() => setModalOpen(false)}
         footer={
           <>
-            <Button
-              variant="ghost"
-              onClick={() => setModalOpen(false)}
-            >
+            <Button variant="ghost" onClick={() => setModalOpen(false)}>
               Cancel
             </Button>
-            <Button
-              variant="primary"
-              onClick={handleSave}
-              disabled={loading}
-            >
+            <Button variant="primary" onClick={handleSave} disabled={loading}>
               {editingProduct ? "Save changes" : "Add product"}
             </Button>
           </>
@@ -361,4 +347,3 @@ function ProductManagement() {
 }
 
 export default ProductManagement;
-

@@ -4,11 +4,10 @@ const API = axios.create({
   baseURL: "http://localhost:8080/api",
 });
 
-
 // PRODUCTS API
 export const productsApi = {
 
-  list: () => API.get("/products"),   // used in AdminDashboard
+  list: () => API.get("/products"),
 
   getById: (id) => API.get(`/products/${id}`),
 
@@ -20,10 +19,9 @@ export const productsApi = {
 
   lowStock: () => API.get("/products/low-stock"),
 
-  searchByName: (name) =>
-    API.get(`/products/search?name=${name}`),
-};
+  searchByName: (name) => API.get(`/products/search?name=${name}`),
 
+};
 
 // ORDERS API
 export const ordersApi = {
@@ -31,13 +29,12 @@ export const ordersApi = {
   create: (phone, items) =>
     API.post("/orders", {
       customerPhone: phone,
-      items: items
+      items: items,
     }),
 
-  list: () => API.get("/orders")
+  list: () => API.get("/orders"),
 
 };
-
 
 // AUTH API
 export const authApi = {
@@ -46,15 +43,17 @@ export const authApi = {
 
   register: (data) => API.post("/auth/register", data),
 
-};
+  verifyOtp: (data) => API.post("/auth/verify-otp", data),
 
+};
 
 // USERS API
 export const usersApi = {
 
   getProfile: () => API.get("/users/profile"),
 
-  updateProfile: (data) =>
-    API.put("/users/profile", data),
+  updateProfile: (data) => API.put("/users/profile", data),
 
 };
+
+export default API;

@@ -8,27 +8,15 @@ function ProductForm({ form, onChange }) {
     <div className="vm-form-grid">
       <label className="vm-form-grid__field">
         <span>Name</span>
-        <input
-          name="name"
-          value={form.name}
-          onChange={handleChange}
-        />
+        <input name="name" value={form.name} onChange={handleChange} />
       </label>
       <label className="vm-form-grid__field">
         <span>Category</span>
-        <input
-          name="category"
-          value={form.category}
-          onChange={handleChange}
-        />
+        <input name="category" value={form.category} onChange={handleChange} />
       </label>
       <label className="vm-form-grid__field">
         <span>Brand</span>
-        <input
-          name="brand"
-          value={form.brand}
-          onChange={handleChange}
-        />
+        <input name="brand" value={form.brand} onChange={handleChange} />
       </label>
       <label className="vm-form-grid__field">
         <span>Price</span>
@@ -71,4 +59,3 @@ function ProductForm({ form, onChange }) {
 }
 
 export default ProductForm;
-

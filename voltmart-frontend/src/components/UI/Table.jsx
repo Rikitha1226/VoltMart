@@ -5,9 +5,7 @@ function Table({ columns, data, rowKey, renderRow }) {
         <thead>
           <tr>
             {columns.map((column) => (
-              <th key={column.key || column.accessor}>
-                {column.header}
-              </th>
+              <th key={column.key || column.accessor}>{column.header}</th>
             ))}
           </tr>
         </thead>
@@ -24,9 +22,7 @@ function Table({ columns, data, rowKey, renderRow }) {
             data.map((item) => (
               <tr key={item[rowKey]}>
                 {columns.map((column) => (
-                  <td
-                    key={column.key || column.accessor}
-                  >
+                  <td key={column.key || column.accessor}>
                     {item[column.accessor]}
                   </td>
                 ))}
@@ -40,4 +36,3 @@ function Table({ columns, data, rowKey, renderRow }) {
 }
 
 export default Table;
-

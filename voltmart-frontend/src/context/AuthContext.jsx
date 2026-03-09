@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
 
     localStorage.setItem(
       STORAGE_KEY,
-      JSON.stringify({ user: userPayload, role: nextRole })
+      JSON.stringify({ user: userPayload, role: nextRole }),
     );
   };
 
@@ -87,4 +87,3 @@ export function RequireAuth({ children, allowedRoles }) {
 
   return children;
 }
-

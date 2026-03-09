@@ -1,6 +1,12 @@
 import Button from "../UI/Button";
 
-function SearchBar({ value, onChange, onSearch, placeholder, showButton = true }) {
+function SearchBar({
+  value,
+  onChange,
+  onSearch,
+  placeholder,
+  showButton = true,
+}) {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       onSearch();
@@ -26,4 +32,3 @@ function SearchBar({ value, onChange, onSearch, placeholder, showButton = true }
 }
 
 export default SearchBar;
-

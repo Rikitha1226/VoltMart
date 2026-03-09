@@ -5,9 +5,7 @@ function Card({ title, subtitle, actions, children, className = "" }) {
         <header className="vm-card__header">
           <div>
             {title && <h2 className="vm-card__title">{title}</h2>}
-            {subtitle && (
-              <p className="vm-card__subtitle">{subtitle}</p>
-            )}
+            {subtitle && <p className="vm-card__subtitle">{subtitle}</p>}
           </div>
           {actions && <div className="vm-card__actions">{actions}</div>}
         </header>
@@ -18,4 +16,3 @@ function Card({ title, subtitle, actions, children, className = "" }) {
 }
 
 export default Card;
-

@@ -37,4 +37,3 @@ function Cart({ items, onIncrease, onDecrease, onRemove, total, onCheckout }) {
 }
 
 export default Cart;
-

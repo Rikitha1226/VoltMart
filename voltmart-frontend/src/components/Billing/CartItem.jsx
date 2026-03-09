@@ -10,10 +10,7 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
       </td>
       <td>₹{item.price * item.quantity}</td>
       <td>
-        <button
-          className="removeBtn"
-          onClick={() => onRemove(item.productId)}
-        >
+        <button className="removeBtn" onClick={() => onRemove(item.productId)}>
           Remove
         </button>
       </td>
@@ -22,4 +19,3 @@ function CartItem({ item, onIncrease, onDecrease, onRemove }) {
 }
 
 export default CartItem;
-

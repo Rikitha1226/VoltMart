@@ -9,24 +9,21 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 public class UserController {
 
+    private final UserService userService;
 
-private final UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
-public UserController(UserService userService) {
-    this.userService = userService;
-}
+    @PutMapping("/{id}")
+    public User updateProfile(@PathVariable Long id, @RequestBody User user) {
+        return userService.updateProfile(id, user);
+    }
 
-@PutMapping("/{id}")
-public User updateProfile(@PathVariable Long id,
-                          @RequestBody User user) {
-    return userService.updateProfile(id, user);
-}
+    @DeleteMapping("/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
 
-@DeleteMapping("/{id}")
-public String deleteUser(@PathVariable Long id){
-userService.deleteUser(id);
-
-return "User deleted successfully";
-}
-
+        return "User deleted successfully";
+    }
 }

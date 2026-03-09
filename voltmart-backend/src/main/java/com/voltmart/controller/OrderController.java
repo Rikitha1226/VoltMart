@@ -3,11 +3,9 @@ package com.voltmart.controller;
 import com.voltmart.entity.Order;
 import com.voltmart.entity.OrderItem;
 import com.voltmart.service.OrderService;
-
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/orders")
@@ -25,20 +23,18 @@ public class OrderController {
     public Order createOrder(@RequestBody OrderRequest request) {
 
         // Convert OrderItemRequest → OrderItem
-        List<OrderItem> orderItems = request.getItems()
-                .stream()
-                .map(item -> {
-                    OrderItem oi = new OrderItem();
-                    oi.setProductId(item.getProductId());
-                    oi.setQuantity(item.getQuantity());
-                    return oi;
-                })
-                .collect(Collectors.toList());
+        List<OrderItem> orderItems =
+                request.getItems().stream()
+                        .map(
+                                item -> {
+                                    OrderItem oi = new OrderItem();
+                                    oi.setProductId(item.getProductId());
+                                    oi.setQuantity(item.getQuantity());
+                                    return oi;
+                                })
+                        .collect(Collectors.toList());
 
-        return orderService.createOrder(
-                request.getCustomerPhone(),
-                orderItems
-        );
+        return orderService.createOrder(request.getCustomerPhone(), orderItems);
     }
 
     // ---------------- GET ALL ORDERS ----------------
@@ -52,7 +48,6 @@ public class OrderController {
     public List<Order> getCustomerOrders(@PathVariable String phone) {
         return orderService.getOrdersByCustomerPhone(phone);
     }
-
 
     // =====================================================
     // REQUEST CLASSES
@@ -79,7 +74,6 @@ public class OrderController {
             this.items = items;
         }
     }
-
 
     public static class OrderItemRequest {
 

@@ -11,6 +11,9 @@ import Orders from "./pages/Orders.jsx";
 import ProductManagement from "./pages/ProductManagement.jsx";
 import Profile from "./pages/Profile.jsx";
 
+import VerifyOTP from "./pages/VerifyOTP";
+
+<Route path="/verify-otp" element={<VerifyOTP />} />
 function App() {
   return (
     <AuthProvider>
